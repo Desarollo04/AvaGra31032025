@@ -3,14 +3,6 @@ Write-Host "Estableciendo política de ejecución en Bypass..."
 Set-ExecutionPolicy Bypass -Scope Process -Force
 Write-Host "Política de ejecución configurada."
 
-# Verificar si se ejecuta como administrador
-Write-Host "Verificando si el script se ejecuta como Administrador..."
-if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    Write-Host "Este script debe ejecutarse como Administrador." -ForegroundColor Red
-    Exit
-}
-Write-Host "El script se ejecuta como Administrador."
-
 # Ruta donde se guardará el instalador en la carpeta de Descargas
 $InstallerPath = "$env:USERPROFILE\Downloads\AvastSetup.exe"
 Write-Host "La ruta de descarga es: $InstallerPath"  # Verificar la ruta
